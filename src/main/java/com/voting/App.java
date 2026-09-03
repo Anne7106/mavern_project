@@ -1,63 +1,46 @@
-package com.voting;
-
-class Voter {
-    String name;
-    int age;
-    String citizenship;
-    String voterId;
-    boolean idValid;
-
-    Voter(String name, int age, String citizenship,
-          String voterId, boolean idValid) {
-        this.name = name;
-        this.age = age;
-        this.citizenship = citizenship;
-        this.voterId = voterId;
-        this.idValid = idValid;
-    }
-
-    String checkEligibility() {
-        if (age < 18)
-            return "Not Eligible - Underage";
-
-        if (!citizenship.equalsIgnoreCase("Indian"))
-            return "Not Eligible - Not an Indian citizen";
-
-        if (!idValid)
-            return "Not Eligible - Invalid Voter ID";
-
-        return "Eligible to Vote";
-    }
-}
+package com.example;
 
 public class App {
+
     public static void main(String[] args) {
 
-        Voter voter1 = new Voter(
-            "Annie", 20, "Indian", "IND12345", true
-        );
+        String studentName = "Anne Catherine";
+        String studentId = "STU101";
 
-        Voter voter2 = new Voter(
-            "John", 16, "Indian", "IND12346", true
-        );
+        String[] subjects = {
+            "Java Programming",
+            "Database Management",
+            "Computer Networks",
+            "Software Engineering"
+        };
 
-        Voter voter3 = new Voter(
-            "David", 25, "American", "IND12347", true
-        );
+        int[] credits = {4, 4, 3, 4};
 
-        Voter voter4 = new Voter(
-            "Sarah", 22, "Indian", "IND12348", false
-        );
+        int totalCredits = 0;
 
-        Voter[] voters = {voter1, voter2, voter3, voter4};
+        for (int credit : credits) {
+            totalCredits += credit;
+        }
 
-        for (Voter voter : voters) {
-            System.out.println("Name: " + voter.name);
-            System.out.println("Age: " + voter.age);
-            System.out.println("Citizenship: " + voter.citizenship);
-            System.out.println("Voter ID: " + voter.voterId);
-            System.out.println("Result: " + voter.checkEligibility());
-            System.out.println("----------------------------");
+        System.out.println("===== COURSE REGISTRATION DETAILS =====");
+        System.out.println("Student Name : " + studentName);
+        System.out.println("Student ID   : " + studentId);
+
+        System.out.println("\nRegistered Subjects:");
+
+        for (int i = 0; i < subjects.length; i++) {
+            System.out.println(
+                (i + 1) + ". " + subjects[i] +
+                " - " + credits[i] + " credits"
+            );
+        }
+
+        System.out.println("\nTotal Credits: " + totalCredits);
+
+        if (totalCredits >= 15) {
+            System.out.println("Eligibility Status: Eligible");
+        } else {
+            System.out.println("Eligibility Status: Not Eligible");
         }
     }
 }
