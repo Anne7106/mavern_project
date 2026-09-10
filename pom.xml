@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>employee-access-system</artifactId>
+    <artifactId>smart-loan-system</artifactId>
     <version>1.0</version>
 
     <properties>
